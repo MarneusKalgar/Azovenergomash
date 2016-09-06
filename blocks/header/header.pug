@@ -1,0 +1,39 @@
+include ../logo/logo
+include ../main-nav/main-nav
+include ../lang-toggle/lang-toggle
+include ../menu-btn/menu-btn
+
+mixin header
+	+b.HEADER.header
+		<!-- block logo -->
+		+logo({
+			"id": "logo",
+			"class": "logo",
+			"href": "#",
+			"title": "azovenergomash.com",
+			"text": "azovenergomash"
+		})
+		<!-- end block logo -->
+
+		<!-- block menu-btn -->
+		+menu-btn({
+			"class": "header__btn"
+		})
+		<!-- end block menu-btn -->
+
+		<!-- block main-nav -->
+		+main-nav([
+			{"class": "main-nav__link main-nav__link--active", "link": "#promo", "title": "О проекте"},
+			{"class": "main-nav__link", "link": "#location", "title": "Расположение объектов"},
+			{"class": "main-nav__link", "link": "#projects", "title": "Реализованные проекты"},
+			{"class": "main-nav__link", "link": "#contacts", "title": "Контакты"}
+		])
+		<!-- end block main-nav -->
+
+		<!-- block lang-toggle -->
+		+lang-toggle([
+			{"class": "lang-toggle__link lang-toggle__link--active", "link": "#", "title": "ru"},
+			{"class": "lang-toggle__link", "link": "#", "title": "ua"},
+			{"class": "lang-toggle__link", "link": "#", "title": "en"}
+		])
+		<!-- end block lang-toggle -->

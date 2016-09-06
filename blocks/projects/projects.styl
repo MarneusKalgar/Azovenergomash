@@ -1,0 +1,148 @@
+/*!********************************************
+		Block .projects
+**********************************************/
+.projects
+	margin 0
+	padding 0
+	
+	/*!*** elem project *****/
+	&__project
+		//mixin init
+		flex-container(column, wrap, center, center)
+		margin 0
+		padding 0
+		+above($media-xlg)
+			flex-direction row
+			height 32.5rem
+			&:nth-child(even)
+				.projects__img
+					order 2
+				.projects__desc
+					order 1
+		
+		/*!*** __project:nth-child *****/
+		&:nth-child(1) .projects__desc
+			padding-top 4.5rem
+			+above($media-xs)
+				padding-top 6.4rem
+		&:nth-child(2) .projects__letter
+			margin 0
+			+above($media-md)
+				margin 0 0 0 -1.5rem
+		&:nth-child(3)
+			.projects__desc
+				padding-top 3rem
+			.projects__letter
+				margin 0 0 0 -1rem
+				+above($media-md)
+					margin-right -1rem
+	
+	/*!*** elem img *****/
+	&__img
+		width 100%
+		max-width 59.375rem
+		height auto
+		margin auto
+		order 1
+		+above($media-md)
+			height 32.5rem
+		+above($media-xlg)
+			width 50%
+			height 100%
+	
+	/*!*** elem desc *****/	
+	&__desc
+		box-sizing border-box
+		width 100%
+		max-width 59.375rem
+		min-height 32.5rem
+		margin auto
+		padding 4rem 2.5rem 1rem 3.5rem
+		order 2
+		line-height $base-line-height
+		background-color $projects-bgcolor
+		+above($media-md)
+			padding-right 3.5rem
+			padding-left 5rem
+		+above($media-xlg)
+			width 50%
+			height 100%
+	
+	/*!*** elem title *****/
+	&__title
+		//mixin init
+		heading(
+			$heading-font-weight,
+			$heading-font-size,
+			$heading-font-family,
+			center,
+			$heading-color,
+			$heading-letter-spacing
+		)
+		margin 0
+		+above($media-xs)
+			text-align left
+	
+	/*!*** elem letter *****/
+	&__letter
+		display block
+		font-size $projects-letter-font-size * .8
+		letter-spacing -.3rem
+		+above($media-xs)
+			display inline
+		+above($media-md)
+			font-size $projects-letter-font-size
+			letter-spacing -.5rem
+			
+		/*!*** modifier currency *****/
+		&--currency
+			display block
+			position relative
+			width 4.475rem
+			margin 0 auto
+			letter-spacing -1rem
+			+above($media-xs)
+				display inline-block
+				margin 0 2rem 0 -2rem
+			+above($media-md)
+				margin-right 4rem
+			&::after
+				content '\00A2'
+				position absolute
+				top .2rem
+				right -1.3rem
+				font-size 4.5rem *.8
+				+above($media-md)
+					font-size 4.5rem
+					right -3.3rem
+					
+		/*!*** modifier sup *****/
+		&--sup
+			display block
+			position relative
+			width 10.5rem
+			margin 0 auto
+			text-transform none
+			+above($media-xs)
+				display inline-block
+				width auto
+				margin 0 2rem 0 -.5rem
+			&::after
+				content 'лет'
+				position absolute
+				top .35rem
+				right -5rem
+				font-size 3.5rem * .8
+				letter-spacing .1rem
+				+above($media-md)
+					font-size 3.5rem
+					top .5rem
+					right -6rem
+	
+	/*!*** elem info *****/			
+	&__info
+		margin 1rem 0 0
+		text-overflow(normal, ellipsis, hidden)
+		+above($media-lg)
+			margin 0
+		

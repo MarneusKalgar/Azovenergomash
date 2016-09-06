@@ -1,0 +1,25 @@
+/*!********************************************
+		Block .similar
+**********************************************/
+.similar
+	position relative
+	margin 0 
+	padding 3rem 0 0
+	
+	/*!*** elem title *****/
+	&__title
+		position relative
+		z-index 10
+		margin 0
+		transform translateY(3rem)
+		//padding-top 3rem
+		//mixin init
+		heading(
+			$heading-font-weight,
+			$heading-font-size,
+			$heading-font-family,
+			center,
+			$heading-color,
+			$heading-letter-spacing
+		)
+		

@@ -1,0 +1,117 @@
+/*!********************************************
+		Block .project-slider
+**********************************************/
+.project-slider
+	position relative
+	top -1.8125rem
+	width 100%
+	height 46.875rem
+	overflow hidden
+	+above($media-xlg)
+		height 52.133vw
+	
+	/*!*** elem wrap *****/
+	&__wrap
+		width 100%
+	
+	/*!*** elem slide *****/
+	&__slide
+		display none
+		position relative
+		height 46.875rem
+		margin 0
+		overflow hidden
+		+above($media-xlg)
+			width 100%
+			height auto
+			overflow visible
+		
+		/*!*** modifier visible *****/
+		&--active
+			display block
+	
+	/*!*** elem img *****/
+	&__img
+		display block
+		width auto
+		height 100%
+		+above($media-xlg)
+			width 100%
+			max-width 100%
+			height auto
+	
+	/*!*** elem desc *****/
+	&__desc
+		box-sizing border-box
+		position absolute
+		left 0
+		bottom 2.8rem
+		width 65%
+		min-width 21rem
+		min-height 25.5rem
+		padding 0 1.5rem 1rem 1.5rem
+		font-size $base-font-size-sm
+		background-color rgba(#fff, .9)
+		+above($media-md)
+			width 47rem
+			height auto
+			padding 0 3rem 1rem 3rem
+			font-size $base-font-size-md
+			background-color #fff
+	
+	/*!*** elem title *****/
+	&__title
+		margin 0
+		padding 2.7rem 0 1.5rem 0
+		//mixin init
+		heading(
+			$heading-font-weight,
+			$heading-font-size,
+			$heading-font-family,
+			left,
+			$heading-color,
+			$heading-letter-spacing
+		)
+	
+	/*!*** elem info *****/	
+	&__info
+		max-height 32.5125rem
+		margin 0
+		line-height $base-line-height
+		//mixin init
+		text-overflow(normal, ellipsis, hidden)
+		+above($media-xlg)
+			max-height 25.5rem
+	
+	/*!*** elem toggle-right *****/
+	&__toggle-wrap
+		position absolute
+		top 0
+		right 0
+		display block
+		width 7em
+		height 46.875rem
+		transition all .2s ease-in .1s
+		&:hover
+			.project-slider__toggle-right
+				opacity .6			
+	
+	/*!*** elem project *****/
+	&__toggle-right
+		position absolute
+		top 40%
+		left 3rem
+		width 3.125rem
+		height 10.25rem
+		fill #fff
+		opacity 0
+		fill-rule evenodd
+		cursor pointer
+		transition all .2s ease-in .1s
+		&:hover
+		&:active
+			fill #888686
+			opacity 1
+		+above($media-lg)
+			top 21vw
+			left 2rem

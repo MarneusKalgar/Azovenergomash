@@ -1,0 +1,28 @@
+/*!********************************************
+		Block .scroll-to top
+**********************************************/
+.scroll-to-top
+	box-sizing border-box
+	display none
+	position fixed
+	z-index 500
+	width 2.125rem
+	height 2.125rem
+	border .0625em solid $base-text-color-active
+	border-radius 50%
+	background-color #fff
+	transition all .2s ease .2s
+	&:hover
+		box-shadow .1em .1em .2em rgba(#000, .5)
+	
+	&__elem
+		position absolute
+		left .2em
+		top .2em
+		width 1.5rem
+		height 1.5rem
+		fill $base-text-color-active
+		fill-rule evenodd
+		transition all .2s ease .2s
+		&:hover
+			fill darken($base-text-color-active, 20%)

@@ -1,0 +1,31 @@
+// @font-face
+font-face(ff, fs, fw, local-ff, woff2-url, woff-url)
+	@font-face 
+		font-family ff
+		font-style fs
+		font-weight fw
+		src local(local-ff), url(woff2-url) format('woff2'), url(woff-url) format('woff')
+		font-display swap
+
+// overflow ellipsis
+text-overflow(ws, to, of)
+	white-space ws
+	text-overflow to
+	overflow of
+		
+// flex container
+flex-container(dir, wr, jc, ai)
+	display flex
+	flex-direction dir
+	flex-wrap wr
+	justify-content jc
+	align-items ai
+	
+//heading
+heading(fw, fz, ff, ta, color, lsp)
+	font fw fz ff
+	text-align ta
+	color color
+	text-transform uppercase
+	letter-spacing lsp
+		

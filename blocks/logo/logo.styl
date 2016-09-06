@@ -1,0 +1,33 @@
+/*!********************************************
+		Block .logo
+**********************************************/
+.logo
+	position relative
+	width 9.675rem
+	height $header-hight
+	padding-left 4.7rem
+	margin-left 3%
+	font bold $base-font-size-sm / $header-hight $heading-font-family
+	color $heading-color
+	text-decoration none
+	text-transform uppercase
+	letter-spacing .08em
+	outline none
+	+above($media-xs)
+		margin-left 10%
+	+above($media-lg)
+		margin-left 0
+	
+	/*!*** elem img *****/
+	&__img
+		position absolute
+		left 0
+		bottom 0
+		z-index 100
+		fill #00aeef
+		fill-rule evenodd
+	
+	/*!*** elem bg *****/
+	&__bg
+		fill #00aeef
+		fill-rule evenodd

@@ -1,0 +1,46 @@
+mixin contacts
+	+b.SECTION.contacts#contacts
+		+e.DIV.connections
+			+e.H2.title контакты
+			+e.DIV.about
+				+e.H3.caption частное предприятие &laquo;азовэнерго&raquo;
+				+e.P.info Украина, Запорожская область, Акимовский pайон
+				+e.P.info пгт. Акимовка, улица Ленина, дом 109, офис 16.
+				+e.P.info Код ЕГРОПУ 36523629
+				+e.P.info Код КВЭД 40.11 (Производство электроэнергии)
+				+e.P.info Дата регистрации 
+					time(datetime="2009-06-15") 15.06.2009 г. 
+					| по №10045024820
+			+e.DIV.about
+				+e.H3.caption частное предприятие &laquo;азовэнергомаш&raquo;
+				+e.P.info Украина, Запорожская область, Акимовский pайон
+				+e.P.info пгт. Акимовка, улица Ленина, дом 109, офис 16.
+				+e.P.info Код ЕГРОПУ 36525947
+				+e.P.info Код КВЭД 40.11 (Производство электроэнергии)
+				+e.P.info Дата регистрации 
+					time(datetime="2009-06-15") 15.06.2009 г. 
+					| по №10045024820
+
+		+e.DIV.offices
+			+e.H2.title офисы в киеве
+			+e.ADDRESS.address
+				+e.A.location#azovenergoMap(href="https://www.google.com.ua/maps/place/%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%97%D0%B2%D1%96%D1%80%D0%B8%D0%BD%D0%B5%D1%86%D1%8C%D0%BA%D0%B0,+59,+%D0%9A%D0%B8%D1%97%D0%B2/@50.4072384,30.5528205,17z/data=!3m1!4b1!4m5!3m4!1s0x40d4cf5c2b541de3:0xc650bd1a4c533506!8m2!3d50.407235!4d30.5550145?hl=ru", target="_blank")
+				+e.DIV.data-wrap
+					+e.P.data ул. 
+						+e.SPAN.street зверинецкая,
+						|  59/2
+					+e.P.data
+						+e.link(href="tel:+380442888755") тел.:(044) 288-87-55
+					+e.P.data
+						+e.link(href="mailto:info@azovaeromash.com") info@azovaeromash.com
+
+			+e.ADDRESS.address
+				+e.DIV.location#azovenergomashMap(href="https://www.google.com.ua/maps/place/%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%9B%D0%B0%D0%B2%D1%80%D1%81%D1%8C%D0%BA%D0%B0,+4,+%D0%9A%D0%B8%D1%97%D0%B2,+02000/@50.4380262,30.5494541,17z/data=!3m1!4b1!4m5!3m4!1s0x40d4cfa6c639a8e3:0xe2f085ca9864b3e2!8m2!3d50.4380228!4d30.5516481?hl=ru", target="_blank")
+				+e.DIV.data-wrap
+					+e.P.data ул. 
+						+e.SPAN.street лаврская, 
+						|  4, оф. 2
+					+e.P.data
+						+e.link(href="tel:+380968270291") тел.:(096) 827-02-91
+					+e.P.data
+						+e.link(href="mailto:info@azovaeromash.com") info@azovaeromash.com

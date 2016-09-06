@@ -1,0 +1,36 @@
+/*!********************************************
+		Block .header
+**********************************************/
+.header
+	flex-container(row, wrap, space-between, center)
+	position relative
+	width 100%
+	height $header-hight
+	margin 0 auto
+	+above($media-lg)
+		width 85%
+	+above($media-xlg)
+		width 74.85%
+	
+	/*!*** modifier isFixed *****/
+	&--isFixed
+		box-sizing border-box
+		position fixed
+		top 0
+		left 0
+		z-index 1000
+		width 100%
+		//padding 0 15%
+		background-color $base-bg-color
+		box-shadow 0 .1em .5em rgba(#000, .3)
+		+above($media-lg)
+			padding 0 calc( (100% - 85%) / 2 )
+		+above($media-xlg)
+			padding 0 calc( (100% - 74.85%) / 2 )
+	
+	/*!*** elem btn *****/
+	&__btn
+		display block
+		margin-right 15%
+		+above($media-lg)
+			display none

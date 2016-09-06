@@ -1,0 +1,39 @@
+/*!********************************************
+		Block .lang-toggle
+**********************************************/
+.lang-toggle
+	//mixin init
+	flex-container(row, wrap, space-between, center)
+	width 5rem
+	height $header-hight
+	margin 0 3% 0 0
+	padding 0
+	list-style none
+	+above($media-xs)
+		margin-right 10%
+	+above($media-lg)
+		margin-right 0
+	
+	/*!*** elem link *****/
+	&__link
+		display block
+		height $header-hight
+		line-height @height
+		font-size $base-font-size-sm
+		color $base-text-color
+		text-transform uppercase
+		text-decoration none
+		&:link
+		&:hover
+		&:active
+			color $base-text-color-hovered
+		
+		/*!*** modifier active *****/
+		&--active
+			color $base-text-color-active
+			&:link
+			&:hover
+			&:active
+				color $base-text-color-active
+				cursor default
+	

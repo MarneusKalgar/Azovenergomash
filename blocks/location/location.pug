@@ -1,0 +1,18 @@
+mixin location
+	+b.SECTION.location#location
+		+e.H2.title расположение объектов и ветропотенциал
+		+e.FIGURE.map
+			picture
+				source(media="(min-width: 60em)", srcset="img/location/location__map-lg.jpg")
+				source(srcset="img/location/location__map-xs.jpg")
+				+e.IMG.img(src="img/location/location__map.jpg", alt="Карта расположения объектов")
+			+e.FIGCAPTION.desc
+				+e.UL.legend
+					+e.item Pасстановка 
+						abbr(title="ветроэлектрическая установка") ВЭУ 
+						| на площадках 
+						abbr(title="ветроэлектрическая станция") ВЭС
+					+e.item Атлантические циклоны
+					+e.item Континентальный полярный ветер
+					+e.item Средиземноморские циклоны
+				+e.P.info Проектом предусмотрен монтаж двух комплексов ветроэлектростанций утсановленной мощностью 175 МВт (Азовэнергомаш) и 270 МВт (Азовэнерго).

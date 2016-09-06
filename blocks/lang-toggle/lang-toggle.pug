@@ -1,0 +1,8 @@
+mixin lang-toggle(items)
+	+b.UL.lang-toggle
+		each item in items
+			+e.LI.item
+				a()&attributes({
+					"class": item.class,
+					"href": item.link
+				})= item.title

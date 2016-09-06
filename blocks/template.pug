@@ -1,0 +1,31 @@
+include _assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" })
+
+include head/head
+include page/page
+include header/header
+include promo/promo
+include strategy/strategy
+include projects/projects
+include location/location
+include similar/similar
+include contacts/contacts
+include scroll-to-top/scroll-to-top
+
+doctype html
+html(lang="ru")
+	
+	head
+		+head({
+			"title": "Azovenergomash Home Page",
+			"author": "Igor Chernobay",
+			"description": "markup, coding"
+		})
+
+	body.page
+		.page__wrap
+			+page()
+
+		script(src="js/libs/jquery.min.js")
+		script(src="js/main.js")
+		script(async, src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC5GFoPzqu4eCqAyaejw9gYwiZMoCkA30s&callback=initMap")

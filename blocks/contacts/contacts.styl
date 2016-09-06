@@ -1,0 +1,168 @@
+/*!********************************************
+		Block .contacts
+**********************************************/
+.contacts
+	height 87.9375rem
+	margin 0
+	padding 0
+	background #fff url('../img/contacts/contacts-bg-xs.jpg') 0 bottom no-repeat
+	+above($media-xs)
+		background #fff url('../img/contacts/contacts-bg.jpg') 0 bottom no-repeat
+	
+	/*!*** elem connections *****/
+	&__connections
+		//mixin init
+		flex-container(row, wrap, center, center)
+		padding-top 1rem
+		+above($media-lg)
+			padding-top 6.2rem
+	
+	/*!*** elem title *****/
+	&__title
+		width 100%
+		margin 0
+		//mixin init
+		heading(
+			$heading-font-weight,
+			$heading-font-size,
+			$heading-font-family,
+			center,
+			$heading-color,
+			$heading-letter-spacing
+		)
+	
+	/*!*** elem about *****/	
+	&__about
+		box-sizing border-box
+		width 100%
+		padding 2.5rem 1rem 0
+		&:first-of-type
+			margin-right 0
+		&:last-of-type
+			margin-left 0
+		+above($media-lg)
+			width 35rem
+			padding-top 7.5rem
+		+above($media-xlg)
+			width 40rem
+			&:first-of-type
+				margin-right 1rem
+			&:last-of-type
+				margin-left 1rem
+	
+	/*!*** elem caption *****/	
+	&__caption
+		margin 0
+		//mixin init
+		heading(
+			$heading-font-weight,
+			$heading-font-size * .8,
+			$heading-font-family,
+			center,
+			$heading-color,
+			$heading-letter-spacing
+		)
+		+above($media-xs)
+			font-size $heading-font-size
+	
+	/*!*** elem info *****/	
+	&__info
+		margin 0
+		line-height $contacts-line-height
+		font-size $base-font-size-sm
+		text-align center
+		&:first-of-type
+			padding-top 1.8rem
+		+above($media-xs)
+			font-size inherit
+			
+	/*!*** elem offices *****/
+	&__offices
+		flex-container(row, wrap, center, center)
+		padding-top 3rem
+		+above($media-lg)
+			padding-top 11.3rem
+	
+	/*!*** elem address *****/
+	&__address
+		box-sizing border-box
+		width 29rem
+		padding 0 1rem
+		//mixin init
+		flex-container(row, wrap, space-around, center)
+		&:first-of-type
+			margin-right 0
+		&:last-of-type
+			margin-left 0
+		+above($media-xs)
+			width 38rem
+		+above($media-md)
+			width 45rem
+		+above($media-lg)
+			flex-direction column
+			width 50%
+		+above($media-xlg)
+			width 38rem
+			padding 0
+			&:first-of-type
+				margin-right 3rem
+			&:last-of-type
+				margin-left 3rem
+	
+	/*!*** elem location *****/
+	&__location
+		position relative
+		z-index 100
+		width 16rem * .8
+		height 16rem * .8
+		margin 2.5rem 0 1.5rem
+		background-color lightblue
+		border-radius 50%
+		box-shadow 0 .4em 1em rgba(#000, .5)
+		cursor pointer
+		overflow hidden
+		//enable cursor when hover on map-container
+		div
+			cursor pointer
+		+above($media-lg)
+			width 16rem
+			height 16rem
+			margin 2.5rem auto 1.5rem
+	
+	/*!*** elem data-wrap *****/
+	&__data-wrap
+		width 16rem * .8
+		+above($media-xs)
+			width 17rem
+		+above($media-lg)
+			width auto
+			height auto
+	
+	/*!*** elem data *****/
+	&__data
+		margin 0
+		padding-left .5rem
+		font $heading-font-weight $heading-font-size * .6 / $base-line-height $heading-font-family
+		text-align left
+		letter-spacing $heading-letter-spacing
+		color $contacts-address-color
+		+above($media-xs)
+			font-size $heading-font-size * .8
+		+above($media-lg)
+			width 100%
+			padding-left 0
+			font-size $heading-font-size
+			text-align center
+	
+	/*!*** elem str *****/	
+	&__street
+		text-transform uppercase
+	
+	/*!*** elem link *****/
+	&__link
+		text-decoration none
+		color inherit
+		transition all .1s ease-in .2s
+		&:hover
+		&:active
+			color lighten($contacts-address-color, 20%)
