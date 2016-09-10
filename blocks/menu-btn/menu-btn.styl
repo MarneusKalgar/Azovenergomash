@@ -4,18 +4,20 @@
 .menu-btn
 	width 2rem
 	height 2rem
+	padding .0625rem .375rem
 	border none
 	background transparent
 	outline none
 	+above($media-md)
 		width 2.5rem
 		height 2.5rem
-	
+	&:hover
+	&:active
+	&:focus
+		.menu-btn__bg
+			fill $base-text-color-active
+			
 	&__bg
 		fill $base-text-color
 		fill-rule evenodd
 		transition all .2s linear .2s
-		&:hover
-		&:active
-		&:focus
-			fill $base-text-color-active

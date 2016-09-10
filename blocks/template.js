@@ -8,8 +8,10 @@ $(function() {
 
 	mobileMenuToggle();
 
-	scrollToTop();
+	promo();
 
 	projectSlider();
+
+	scrollToTop();
 
 });

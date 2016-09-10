@@ -3,26 +3,46 @@
 **********************************************/
 .scroll-to-top
 	box-sizing border-box
-	display none
+	display block
 	position fixed
 	z-index 500
-	width 2.125rem
-	height 2.125rem
-	border .0625em solid $base-text-color-active
+	width 2.5rem
+	height 2.5rem
 	border-radius 50%
-	background-color #fff
+	background-color darken(#fff, 5%)
+	opacity 0
 	transition all .2s ease .2s
 	&:hover
-		box-shadow .1em .1em .2em rgba(#000, .5)
+		background-color darken(#fff, 15%)
 	
+	/*!*** modifier scroll-to-top animation *****/
+	&--fadeIn
+		animation fadeIn .5s ease 1 forwards
+	&--fadeOut
+		animation fadeOut .5s ease 1 forwards
+	
+	/*!*** elem elem *****/
 	&__elem
 		position absolute
-		left .2em
-		top .2em
-		width 1.5rem
-		height 1.5rem
+		left .25rem
+		top .25rem
+		width 2rem
+		height 2rem
 		fill $base-text-color-active
 		fill-rule evenodd
 		transition all .2s ease .2s
 		&:hover
-			fill darken($base-text-color-active, 20%)
+			fill lighten($base-text-color-active, 20%)
+			
+//animation function
+@keyframes fadeIn
+	0%  
+		opacity 0
+	100%
+		opacity .8
+		
+@keyframes fadeOut
+	0%  
+		opacity .8
+	100%
+		opacity 0

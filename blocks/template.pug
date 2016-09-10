@@ -25,7 +25,11 @@ html(lang="ru")
 	body.page
 		.page__wrap
 			+page()
-
+		
+		// build:js js/libs/jquery.min.js
 		script(src="js/libs/jquery.min.js")
+		// endbuild
+		// build:js js/main.js
 		script(src="js/main.js")
-		script(async, src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC5GFoPzqu4eCqAyaejw9gYwiZMoCkA30s&callback=initMap")
+		// endbuild
+		//-script(async, src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC5GFoPzqu4eCqAyaejw9gYwiZMoCkA30s&callback=initMap")

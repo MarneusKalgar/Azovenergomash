@@ -4,9 +4,13 @@
 .header
 	flex-container(row, wrap, space-between, center)
 	position relative
+	z-index 1000
 	width 100%
-	height $header-hight
+	height $header-hight * .8
 	margin 0 auto
+	background-color $base-bg-color
+	+above($media-mob-xs)
+		height $header-hight 
 	+above($media-lg)
 		width 85%
 	+above($media-xlg)
@@ -20,9 +24,9 @@
 		left 0
 		z-index 1000
 		width 100%
-		//padding 0 15%
+		min-width 19rem
 		background-color $base-bg-color
-		box-shadow 0 .1em .5em rgba(#000, .3)
+		box-shadow 0 .1em .5em rgba(#000, .3)		
 		+above($media-lg)
 			padding 0 calc( (100% - 85%) / 2 )
 		+above($media-xlg)
@@ -30,7 +34,15 @@
 	
 	/*!*** elem btn *****/
 	&__btn
-		display block
-		margin-right 15%
+		position absolute
+		top .9rem
+		left 62%
+		+above($media-mob-xs)
+			top 1.0rem
+			left 55%
+		+above($media-xs)
+			left 50%
+		+above($media-md)
+			top 1.2rem
 		+above($media-lg)
 			display none

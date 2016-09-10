@@ -5,32 +5,48 @@
 	//mixin init
 	flex-container(column, wrap, flex-start, center)
 	position relative
-	z-index 1
-	height 64.5625rem
+	z-index 10
+	height $promo-height
 	margin 0
 	padding 0
-	background #fff url('../img/promo/promo-bg-xs.jpg') 0 -4.3rem no-repeat
-	+above($media-xs)
-		background #fff url('../img/promo/promo-bg-lg.jpg') 0 -4.3rem no-repeat
-		
+	overflow hidden
+	
 	/*!*** modifier isFixed *****/
 	&--isPositioned
-		box-sizing border-box
-		padding-top $header-hight
-	
+		margin-top $header-hight * .8
+		+above($media-mob-xs)
+			margin-top $header-hight
+			
+	&__parallax
+		position absolute
+		left 0
+		top 0
+		z-index -100
+		width 100%
+		height $promo-height
+		overflow hidden
+		background url('../img/promo/promo-bg-xs.jpg') 0 -4.3rem no-repeat
+		+above($media-xs)
+			background url('../img/promo/promo-bg-lg.jpg') 0 -4.3rem no-repeat
+
+		
 	/*!*** elem title *****/
 	&__title
 		width auto
 		margin 0
-		padding 18rem 1rem 0
-		font bold $promo-heading-font-size * .6 / $promo-heading-line-height $heading-font-family
+		padding 13rem 1rem 0
+		font bold $promo-heading-font-size * .5 / $promo-heading-line-height * .8 $heading-font-family
 		color $heading-color	
 		text-transform uppercase
 		text-align center
 		letter-spacing $promo-letter-spacing
 		//mixin init
 		text-overflow(normal, ellipsis, hidden)
+		+above($media-mob-xs)
+			padding-top 18rem
+			line-height $promo-heading-line-height
 		+above($media-xs)
+			padding 18rem 2rem 0
 			font-size $promo-heading-font-size * .8
 		+above($media-md)
 			font-size $promo-heading-font-size
@@ -45,7 +61,7 @@
 		margin .5rem 0 0
 		color $promo-text-color
 		line-height $promo-line-height
-		font-size $promo-text-font-size * .8
+		font-size $promo-text-font-size * .7
 		text-align center
 		letter-spacing .02em
 		//mixin init
@@ -53,12 +69,16 @@
 		&:nth-of-type(2)
 			width 80%
 			margin 0
-			padding 6rem 1rem 0
+			padding 4.5rem 1rem 0
+			+above($media-mob-xs)
+				padding-top 6rem
 			+above($media-xs)
 				padding 9.4rem 0 0
 			+above($media-lg)
 				width 50rem
 				margin-right 2.5rem
+		+above($media-mob-xs)
+			font-size $promo-text-font-size * .8		
 		+above($media-md)
 			font-size $promo-text-font-size
 		+above($media-lg)
@@ -73,9 +93,12 @@
 		left 45.5%
 		bottom 1.5rem
 		z-index 100
-		width 2rem
-		height 3.385rem
+		width 2rem * .8
+		height 3.385rem * .8
 		background transparent embedurl('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiB3aWR0aD0iNjMuMDYyIiBoZWlnaHQ9IjEwNi40MiIgdmlld0JveD0iMCAwIDMxLjUzMSA1My4yMSI+PGRlZnM+PHN0eWxlPi5jbHMtMSB7IGZpbGw6ICNmZmY7IGZpbGwtcnVsZTogZXZlbm9kZDsgfTwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik0xNS43NjEgNTMuMjAyQzYuMzM3IDUzLjIwMi4wMDYgNDYuNzkzLjAwNiAzNy4yNTNWMTUuOTU4YzAtOS41NCA2LjMzMS0xNS45NSAxNS43NTUtMTUuOTVzMTUuNzU2IDYuNDEgMTUuNzU2IDE1Ljk1djIxLjI5NWMwIDkuNTQtNi4zMzIgMTUuOTQ5LTE1Ljc1NiAxNS45NDl6bTEyLjk3OC0zNy4yNDRjMC03Ljk4MS01LjA5NC0xMy4xMzctMTIuOTc4LTEzLjEzNy03Ljg4NCAwLTEyLjk3NyA1LjE1Ni0xMi45NzcgMTMuMTM3djIxLjI5NWMwIDcuOTgxIDUuMDkzIDEzLjEzNyAxMi45NzcgMTMuMTM3czEyLjk3OC01LjE1NiAxMi45NzgtMTMuMTM3VjE1Ljk1OHptLTEyLjk3OCA0LjY3OGMtMi4xMDYgMC0zLjgyLTEuNzM1LTMuODItMy44NjcgMC0yLjEzMyAxLjcxNC0zLjg2OCAzLjgyLTMuODY4IDIuMTA3IDAgMy44MiAxLjczNSAzLjgyIDMuODY4IDAgMi4xMzItMS43MTMgMy44NjctMy44MiAzLjg2N3ptMC00LjkyM2MtLjU3NSAwLTEuMDQyLjQ3NC0xLjA0MiAxLjA1NiAwIC41ODEuNDY3IDEuMDU1IDEuMDQyIDEuMDU1czEuMDQzLS40NzQgMS4wNDMtMS4wNTVjMC0uNTgyLS40NjgtMS4wNTYtMS4wNDMtMS4wNTZ6IiBjbGFzcz0iY2xzLTEiLz48L3N2Zz4=') 0 0 no-repeat
 		background-size cover
+		+above($media-mob-xs)
+			width 2rem
+			height 3.385rem
 		+above($media-xs)
 			left 49.5%

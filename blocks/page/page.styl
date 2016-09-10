@@ -4,22 +4,29 @@
 .page
 	margin 0
 	padding 0
-	font $base-font-size-md $base-font-family
+	font-size $base-font-size-md * .8
+	font-family $base-font-family
+	line-height $base-line-height * .8
 	text-rendering optimizeLegibility
 	color $base-text-color
-	background-color $base-bg-color 
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing antialiased
+	background-color $base-bg-color
+	+above($media-mob-xs)
+		line-height $base-line-height
+		font-size $base-font-size-md
 	
 	/*!*** elem wrap *****/
 	&__wrap
 		margin 0 auto
 		max-width 118.75rem //1900px
-		min-width 29rem //464px
+		min-width 19rem //304px
 	
 	/*!*** elem to-top *****/
 	&__to-top
 		right 1rem
 		bottom 1rem
 		+above($media-md)
-			right 2rem
-			bottom 2rem
+			right 3rem
+			bottom 3rem
 		

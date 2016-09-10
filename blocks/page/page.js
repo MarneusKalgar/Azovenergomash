@@ -13,7 +13,7 @@ function page() {
 	$(window).scroll(function() {
 
 		// .location section
-		if ( $(this).scrollTop() >= $location.position().top && 
+		if ( $(this).scrollTop() >= $location.position().top - 50 && 
 				$(this).scrollTop() < $location.position().top + $location.height()  ) {
 			$menu.find($item.eq(0)).find($link).removeClass('main-nav__link--active');
 			$menu.find($item.eq(1)).find($link).addClass('main-nav__link--active');
@@ -25,7 +25,7 @@ function page() {
 		}
 
 		// .similar section
-		if ( $(this).scrollTop() >= $similar.position().top - 100 && 
+		if ( $(this).scrollTop() >= $similar.position().top - 50 && 
 				$(this).scrollTop() < $similar.position().top + $similar.height()  ) {
 			$menu.find($item.eq(2)).find($link).addClass('main-nav__link--active');
 		} else {
@@ -33,7 +33,7 @@ function page() {
 		}
 
 		// .contacts section
-		if ( $(this).scrollTop() >= $contacts.position().top && 
+		if ( $(this).scrollTop() >= $contacts.position().top - 50 && 
 				$(this).scrollTop() < $contacts.position().top + $contacts.height()  ) {
 			$menu.find($item.eq(3)).find($link).addClass('main-nav__link--active');
 		} else {

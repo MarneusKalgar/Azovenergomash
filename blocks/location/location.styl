@@ -3,21 +3,26 @@
 **********************************************/
 .location
 	margin 0
-	padding 0 0 4rem
-	
+	padding 0 0 2rem
+	+above($media-mob-xs)
+		padding 0 0 4rem
+
 	/*!*** elem title *****/
 	&__title
 		margin 0
-		padding 8rem 1rem 2.7rem
+		padding 5rem 1rem 2.7rem
 		//mixin init
 		heading(
 			$heading-font-weight,
-			$heading-font-size,
+			$heading-font-size * .8,
 			$heading-font-family,
 			center,
 			$heading-color,
 			$heading-letter-spacing
 		)
+		+above($media-mob-xs)
+			padding 8rem 1rem 2.7rem
+			font-size $heading-font-size
 	
 	/*!*** elem map *****/
 	&__map
@@ -44,29 +49,32 @@
 	&__legend
 		//mixin init
 		flex-container(column, wrap, center, flex-start)
-		width 22rem
+		width 100%
 		margin 0 auto
-		padding 1.2rem 0 0
+		padding 1.2rem 0 0 1rem
 		list-style none
 		+above($media-md)
 			flex-direction row
 			justify-content flex-start
-			width 39rem
+			width 40rem
 		+above($media-xlg)
 			width 90%
 			justify-content space-between
 	
 	/*!*** elem item *****/
 	&__item
-		width 17.5rem
+		box-sizing border-box
+		width 100%
 		height 2rem
 		padding 0 2rem 0 2rem
 		line-height @height
-		font-size $base-font-size-sm
+		font-size $base-font-size-sm * .8
 		background url('../img/location/location__legend-sprite.png') 0 0 no-repeat
 		&:nth-child(even)
-			width 15rem
+			width 17rem
 			padding-right 0
+		+above($media-mob-xs)
+			width 22.5rem
 		&:nth-child(1)
 			background-position 0rem 0.2rem
 		&:nth-child(2)
@@ -74,7 +82,9 @@
 		&:nth-child(3)
 			background-position 0rem -5.5rem
 		&:nth-child(4)
-			background-position 0rem -8.2rem
+			background-position 0rem -8.3rem
+		+above($media-mob-xs)
+			font-size $base-font-size-sm
 		+above($media-xlg)
 			width auto
 			padding 0 .5rem 0 2rem
@@ -85,9 +95,12 @@
 		width auto
 		margin 0 auto
 		padding 2rem 1rem 0
-		font-size $base-font-size-md
-		line-height $base-line-height
+		font-size $base-font-size-md * .8
+		line-height $base-line-height * .8
 		text-align center
+		+above($media-mob-xs)
+			font-size $base-font-size-md
+			line-height $base-line-height
 		+above($media-md)
 			width 55%
 			

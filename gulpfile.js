@@ -11,27 +11,41 @@ var gulp = require('gulp'),
 		imagemin = require('gulp-imagemin'),
 		browserSync = require('browser-sync').create();
 
-var blocks = 'blocks/',
-		devDir = 'app/',
-		buildDir = 'build/';
+var useref = require('gulp-useref'),
+    gulpif = require('gulp-if'),
+		htmlmin = require('gulp-htmlmin'),
+		csso = require('gulp-csso'),
+		cssmin = require('gulp-clean-css'),
+		uglify = require('gulp-uglify'),
+		rimraf = require('rimraf');
 
-/*
+var paths = {
+			blocks: 'blocks/',
+			devDir: 'app/',
+			outputDir: 'build/',
+			libs:{
+				jq: 'libs/jquery/dist/jquery.min.js'
+			}
+		}
+
+
+/*********************************
 		Developer tasks
-*/
+*********************************/
 
 //pug compile
 gulp.task('pug', function() {
-	return gulp.src(blocks + 'template.pug')
+	return gulp.src(paths.blocks + 'template.pug')
 		.pipe(plumber())
 		.pipe(pug({pretty: true}))
 		.pipe(rename('index.html'))
-		.pipe(gulp.dest(devDir))
+		.pipe(gulp.dest(paths.devDir))
 		.pipe(browserSync.stream())
 })
 
 //stylus compile
 gulp.task('stylus', function() {
-	return gulp.src(blocks + 'template.styl')
+	return gulp.src(paths.blocks + 'template.styl')
 		.pipe(plumber())
 		.pipe(stylus({
 			use: rupture()
@@ -41,44 +55,44 @@ gulp.task('stylus', function() {
 			cascade: true
 		}))
 		.pipe(rename('main.css'))
-		.pipe(gulp.dest(devDir + 'css/'))
+		.pipe(gulp.dest(paths.devDir + 'css/'))
 		.pipe(browserSync.stream());
 });
 
 //js compile
 gulp.task('scripts', function() {
-	return gulp.src([blocks + 'template.js', blocks + '**/*.js', '!' + blocks + '_assets/**/*.js'])
+	return gulp.src([paths.blocks + 'template.js', paths.blocks + '**/*.js', '!' + paths.blocks + '_assets/**/*.js'])
 		.pipe(concat('main.js'))
-		.pipe(gulp.dest(devDir + 'js/'))
+		.pipe(gulp.dest(paths.devDir + 'js/'))
 		.pipe(browserSync.stream());
 });
 
 //watch
 gulp.task('watch', function() {
-	gulp.watch(blocks + '**/*.pug', ['pug']);
-	gulp.watch(blocks + '**/*.styl', ['stylus']);
-	gulp.watch(blocks + '**/*.js', ['scripts']);
+	gulp.watch(paths.blocks + '**/*.pug', ['pug']);
+	gulp.watch(paths.blocks + '**/*.styl', ['stylus']);
+	gulp.watch(paths.blocks + '**/*.js', ['scripts']);
 })
 
-//build image
+//copy images
 gulp.task('imgMin', function() {
-	return gulp.src([blocks + '**/*.jpg', blocks + '**/*.png'])
+	return gulp.src([paths.blocks + '**/*.jpg', paths.blocks + '**/*.png'])
 		.pipe(imagemin({progressive: true}))
-		.pipe(gulp.dest(devDir + 'img/'));
+		.pipe(gulp.dest(paths.devDir + 'img/'));
 })
 
-//fonts
+//copy fonts
 gulp.task('fonts', function() {
-	return gulp.src(blocks + '_assets/fonts/*')
-		.pipe(gulp.dest(devDir + 'fonts/'));
+	return gulp.src(paths.blocks + '_assets/fonts/*')
+		.pipe(gulp.dest(paths.devDir + 'fonts/'));
 })
 
-//vendors
+//copy vendors
 gulp.task('vendors', function() {
 	return gulp.src([ 
-			blocks + '_assets/libs/jquery/dist/jquery.min.js'
+			paths.blocks + '_assets/' + paths.libs.jq
 		])
-		.pipe(gulp.dest(devDir + 'js/libs/'));
+		.pipe(gulp.dest(paths.devDir + 'js/libs/'));
 })
 
 //server
@@ -86,27 +100,57 @@ gulp.task('browser-sync', function() {
     browserSync.init({
     		port: 3000,
         server: {
-            baseDir: devDir
+            baseDir: paths.devDir
         }
     });
 });
 
 
-/*
-		Build tasks
-*/
 
+/*********************************
+		Production tasks
+*********************************/
 
+//clean
+gulp.task('clean', function(cb) {
+	rimraf(paths.outputDir, cb);
+});
 
+//html
+gulp.task('htmlBuild', function() {
+	return gulp.src(paths.devDir + 'index.html')
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(gulp.dest(paths.outputDir));
+});
 
+//css + js
+gulp.task('build', function () {
+	return gulp.src(paths.devDir +'*.html')
+		.pipe(useref())
+		.pipe(gulpif('*.js', uglify() ))
+		.pipe(gulpif('*.css', cssmin() ))
+		.pipe(gulp.dest(paths.outputDir));
+});
+
+//images
+gulp.task('imgBuild', function() {
+	return gulp.src(paths.devDir + 'img/**/*.*')
+		.pipe(gulp.dest(paths.outputDir + 'img/'));
+})
+
+//fonts
+gulp.task('fontsBuild', function() {
+	return gulp.src(paths.devDir + '/fonts/*')
+		.pipe(gulp.dest(paths.outputDir + 'fonts/'));
+})
 
 
 
 //develop
 gulp.task('develop', ['browser-sync', 'watch', 'pug', 'stylus', 'scripts']);
 
-//build
-//gulp.task('build', ['imgBuild']);
+//production
+gulp.task('production', ['htmlBuild', 'build', 'imgBuild', 'fontsBuild']);
 
-
+//default
 gulp.task('default', ['develop']);

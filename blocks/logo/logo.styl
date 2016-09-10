@@ -3,16 +3,23 @@
 **********************************************/
 .logo
 	position relative
-	width 9.675rem
-	height $header-hight
-	padding-left 4.7rem
+	width 9.675rem * .8
+	height $header-hight * .8
+	padding-left 4.7rem * .7
 	margin-left 3%
-	font bold $base-font-size-sm / $header-hight $heading-font-family
+	font bold $base-font-size-sm *.8 / $header-hight * .8  $heading-font-family
 	color $heading-color
 	text-decoration none
 	text-transform uppercase
 	letter-spacing .08em
 	outline none
+	overflow hidden
+	+above($media-mob-xs)
+		width 9.675rem
+		height $header-hight
+		padding-left 4.7rem
+		font-size $base-font-size-sm
+		line-height $header-hight
 	+above($media-xs)
 		margin-left 10%
 	+above($media-lg)
@@ -22,10 +29,15 @@
 	&__img
 		position absolute
 		left 0
-		bottom 0
+		bottom -.3em
 		z-index 100
+		width 3.6875rem * .8
+		height 4.0625rem * .8
 		fill #00aeef
 		fill-rule evenodd
+		+above($media-mob-xs)
+			width 3.6875rem
+			height 4.0625rem
 	
 	/*!*** elem bg *****/
 	&__bg

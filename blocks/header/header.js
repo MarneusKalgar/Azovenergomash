@@ -8,9 +8,8 @@ function header() {
 
 	$(window).scroll(function() {
 
-		if ( $(this).scrollTop() > 70 ) {
+		if ( $(this).scrollTop() ) {
 			$header.addClass('header--isFixed');
-			$header.slideDown();
 			$promo.addClass('promo--isPositioned');
 		} else {
 			$header.removeClass('header--isFixed');

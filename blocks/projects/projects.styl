@@ -57,10 +57,13 @@
 		max-width 59.375rem
 		min-height 32.5rem
 		margin auto
-		padding 4rem 2.5rem 1rem 3.5rem
+		padding 4rem 1.5rem 1rem 2rem
 		order 2
-		line-height $base-line-height
+		text-align center
 		background-color $projects-bgcolor
+		+above($media-mob-xs)
+			padding 4rem 2.5rem 1rem 3.5rem
+			text-align left
 		+above($media-md)
 			padding-right 3.5rem
 			padding-left 5rem
@@ -73,21 +76,25 @@
 		//mixin init
 		heading(
 			$heading-font-weight,
-			$heading-font-size,
+			$heading-font-size * .8,
 			$heading-font-family,
 			center,
 			$heading-color,
 			$heading-letter-spacing
 		)
 		margin 0
+		+above($media-mob-xs)
+			font-size $heading-font-size
 		+above($media-xs)
 			text-align left
 	
 	/*!*** elem letter *****/
 	&__letter
 		display block
-		font-size $projects-letter-font-size * .8
+		font-size $projects-letter-font-size * .6
 		letter-spacing -.3rem
+		+above($media-mob-xs)
+			font-size $projects-letter-font-size * .8
 		+above($media-xs)
 			display inline
 		+above($media-md)
@@ -99,8 +106,10 @@
 			display block
 			position relative
 			width 4.475rem
-			margin 0 auto
+			margin 0 0 0 25%
 			letter-spacing -1rem
+			+above($media-mob-xs)
+				margin 0 auto
 			+above($media-xs)
 				display inline-block
 				margin 0 2rem 0 -2rem
@@ -109,9 +118,13 @@
 			&::after
 				content '\00A2'
 				position absolute
-				top .2rem
-				right -1.3rem
-				font-size 4.5rem *.8
+				top .1rem
+				right -.8rem
+				font-size 4.5rem *.6
+				+above($media-mob-xs)
+					top .2rem
+					right -1.3rem
+					font-size 4.5rem *.8
 				+above($media-md)
 					font-size 4.5rem
 					right -3.3rem
@@ -131,9 +144,13 @@
 				content 'лет'
 				position absolute
 				top .35rem
-				right -5rem
-				font-size 3.5rem * .8
+				right -2rem
+				font-size 3.5rem * .6
 				letter-spacing .1rem
+				+above($media-mob-xs)
+					top .35rem
+					right -5rem
+					font-size 3.5rem * .8
 				+above($media-md)
 					font-size 3.5rem
 					top .5rem

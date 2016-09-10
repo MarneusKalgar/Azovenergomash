@@ -5,18 +5,22 @@
 	position relative
 	top -1.8125rem
 	width 100%
-	height 46.875rem
-	overflow hidden
-	+above($media-xlg)
-		height 52.133vw
+	
+	/*!*** modifier to enable styles if js is available *****/
+	&--isScript
+		height 46.875rem
+		overflow hidden
+		+above($media-xlg)
+			height 52.133vw
 	
 	/*!*** elem wrap *****/
 	&__wrap
 		width 100%
+		height 100%
 	
 	/*!*** elem slide *****/
 	&__slide
-		display none
+		display block
 		position relative
 		height 46.875rem
 		margin 0
@@ -46,12 +50,16 @@
 		position absolute
 		left 0
 		bottom 2.8rem
-		width 65%
-		min-width 21rem
+		width 75%
 		min-height 25.5rem
-		padding 0 1.5rem 1rem 1.5rem
-		font-size $base-font-size-sm
+		padding 0 1rem 1rem 1rem
+		font-size $base-font-size-sm * .8
 		background-color rgba(#fff, .9)
+		+above($media-mob-xs)
+			width 65%
+			min-width 21rem
+			padding 0 1.5rem 1rem 1.5rem
+			font-size $base-font-size-sm
 		+above($media-md)
 			width 47rem
 			height auto
@@ -62,22 +70,24 @@
 	/*!*** elem title *****/
 	&__title
 		margin 0
-		padding 2.7rem 0 1.5rem 0
+		padding 2rem 0 1rem 0
 		//mixin init
 		heading(
 			$heading-font-weight,
-			$heading-font-size,
+			$heading-font-size * .8,
 			$heading-font-family,
 			left,
 			$heading-color,
 			$heading-letter-spacing
 		)
+		+above($media-mob-xs)
+			padding 2.7rem 0 1.5rem 0
+			font-size $heading-font-size
 	
 	/*!*** elem info *****/	
 	&__info
 		max-height 32.5125rem
 		margin 0
-		line-height $base-line-height
 		//mixin init
 		text-overflow(normal, ellipsis, hidden)
 		+above($media-xlg)
@@ -98,13 +108,13 @@
 	
 	/*!*** elem project *****/
 	&__toggle-right
+		display none
 		position absolute
 		top 40%
 		left 3rem
-		width 3.125rem
-		height 10.25rem
+		width 3.125rem * .8
+		height 10.25rem * .8
 		fill #fff
-		opacity 0
 		fill-rule evenodd
 		cursor pointer
 		transition all .2s ease-in .1s
@@ -112,6 +122,9 @@
 		&:active
 			fill #888686
 			opacity 1
+		+above($media-mob-xs)
+			width 3.125rem
+			height 10.25rem
 		+above($media-lg)
 			top 21vw
 			left 2rem

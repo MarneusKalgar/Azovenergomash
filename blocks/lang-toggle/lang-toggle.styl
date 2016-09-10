@@ -4,11 +4,14 @@
 .lang-toggle
 	//mixin init
 	flex-container(row, wrap, space-between, center)
-	width 5rem
-	height $header-hight
+	width 5rem * .7
+	height $header-hight * .8
 	margin 0 3% 0 0
 	padding 0
 	list-style none
+	+above($media-mob-xs)
+		width 5rem
+		height $header-hight
 	+above($media-xs)
 		margin-right 10%
 	+above($media-lg)
@@ -17,9 +20,9 @@
 	/*!*** elem link *****/
 	&__link
 		display block
-		height $header-hight
+		height $header-hight * .8
 		line-height @height
-		font-size $base-font-size-sm
+		font-size $base-font-size-sm * .8
 		color $base-text-color
 		text-transform uppercase
 		text-decoration none
@@ -27,7 +30,11 @@
 		&:hover
 		&:active
 			color $base-text-color-hovered
-		
+		+above($media-mob-xs)
+			height $header-hight
+			line-height @height
+			font-size $base-font-size-sm 
+			
 		/*!*** modifier active *****/
 		&--active
 			color $base-text-color-active
